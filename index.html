@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amulya Thadepalli — Senior QA Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0d0d1a;
+  --card:#16162e;
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --text:#f0f0ff;
+  --muted:#8888b0;
+  --muted2:#6666a0;
+  --accent:#a855f7;
+  --accent2:#c084fc;
+  --pink:#f472b6;
+  --teal:#34d399;
+  --teal-dim:rgba(52,211,153,0.15);
+  --purple-dim:rgba(168,85,247,0.15);
+  --pink-dim:rgba(244,114,182,0.15);
+  --grad:linear-gradient(135deg,#a855f7,#f472b6);
+  --nav-h:64px;
+}
+html{font-size:16px;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);
+  background:rgba(13,13,26,0.92);backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--border);z-index:200;
+  display:flex;align-items:center;padding:0 clamp(1.5rem,5vw,4rem);
+  justify-content:space-between;
+}
+.nav-logo{font-size:15px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.nav-links{display:flex;gap:1.75rem;list-style:none;}
+.nav-links span{font-size:14px;color:var(--muted);cursor:pointer;transition:color 0.2s;user-select:none;}
+.nav-links span:hover,.nav-links span.active{color:var(--text);}
+.nav-hire{font-size:13px;font-weight:600;padding:8px 20px;background:var(--grad);border-radius:20px;color:#fff;cursor:pointer;border:none;font-family:inherit;transition:opacity 0.2s;user-select:none;}
+.nav-hire:hover{opacity:0.85;}
+
+/* SECTIONS */
+section{padding:5.5rem clamp(1.5rem,6vw,5rem);}
+section:not(#hero){border-top:0.5px solid var(--border);}
+.sec-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.25rem;}
+.sec-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:2.75rem;line-height:1.2;}
+.sec-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:calc(var(--nav-h)+3rem);padding-bottom:3rem;}
+.hero-layout{display:grid;grid-template-columns:1fr 400px;gap:3.5rem;align-items:center;width:100%;max-width:1140px;margin:0 auto;}
+@media(max-width:960px){.hero-layout{grid-template-columns:1fr;gap:2.5rem;}}
+
+.status-pill{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.08em;color:var(--text);background:rgba(255,255,255,0.07);border:0.5px solid var(--border2);padding:8px 16px;border-radius:20px;margin-bottom:1.75rem;font-weight:500;text-transform:uppercase;}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:glow 2s infinite;}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0.5);}50%{box-shadow:0 0 0 6px rgba(52,211,153,0);}}
+
+.hero-name{font-size:clamp(3rem,6.5vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.75rem;}
+.hero-name-grad{display:block;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-subtitle{font-size:13px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-bottom:1.75rem;display:flex;align-items:center;gap:10px;}
+.hero-subtitle::before{content:'';display:inline-block;width:28px;height:1px;background:var(--muted2);flex-shrink:0;}
+.hero-quote{font-size:0.975rem;color:var(--muted);max-width:500px;margin-bottom:2.25rem;font-style:italic;border-left:2px solid var(--accent);padding-left:1.25rem;line-height:1.8;}
+.hero-actions{display:flex;gap:0.875rem;flex-wrap:wrap;}
+
+.btn-grad{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--grad);color:#fff;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:opacity 0.2s;}
+.btn-grad:hover{opacity:0.85;}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:0.5px solid var(--border2);color:var(--text);border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;background:transparent;font-family:inherit;transition:background 0.2s;}
+.btn-outline:hover{background:rgba(255,255,255,0.05);}
+
+/* PROFILE CARD */
+.profile-card{background:var(--card);border:0.5px solid var(--border2);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden;}
+.profile-card::after{content:'';position:absolute;top:-80px;right:-80px;width:200px;height:200px;background:radial-gradient(circle,rgba(168,85,247,0.12),transparent 65%);pointer-events:none;z-index:0;}
+.pc-header{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:0.5px solid var(--border);position:relative;z-index:1;}
+.pc-avatar{width:52px;height:52px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
+.pc-name{font-size:16px;font-weight:600;color:var(--text);}
+.pc-role{font-size:13px;color:var(--accent2);margin-top:2px;}
+.pc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:0.5px solid var(--border);position:relative;z-index:1;}
+.pc-row:last-of-type{border-bottom:none;}
+.pc-label{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px;}
+.pc-value{font-size:13px;font-weight:500;color:var(--text);text-align:right;}
+.pc-footer{margin-top:1.25rem;padding-top:1.25rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.pc-available{font-size:13px;color:var(--teal);display:flex;align-items:center;gap:6px;}
+.pc-badge{font-size:11px;font-weight:600;padding:4px 12px;border-radius:12px;border:0.5px solid var(--teal);color:var(--teal);letter-spacing:0.06em;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;align-items:start;}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr;gap:2rem;}}
+.about-bio p{font-size:15px;color:var(--muted);margin-bottom:1rem;line-height:1.8;}
+.about-bio p:first-child{font-size:16px;color:var(--text);}
+.info-cards{display:flex;flex-direction:column;gap:0.75rem;}
+.info-card{padding:1rem 1.25rem;border:0.5px solid var(--border);border-radius:12px;background:var(--card);}
+.info-card-lbl{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted2);margin-bottom:4px;}
+.info-card-val{font-size:14px;font-weight:500;color:var(--text);}
+
+/* EXPERIENCE */
+.exp-item{display:grid;grid-template-columns:210px 1fr;gap:3rem;padding:2.5rem 0;border-top:0.5px solid var(--border);}
+@media(max-width:700px){.exp-item{grid-template-columns:1fr;gap:0.75rem;}}
+.exp-company{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.exp-date{font-size:12px;color:var(--muted);}
+.exp-role{font-size:1rem;font-weight:600;color:var(--accent2);margin-bottom:0.75rem;}
+.exp-bullets{list-style:none;margin-bottom:1rem;}
+.exp-bullets li{font-size:14px;color:var(--muted);padding:4px 0 4px 1.25rem;position:relative;line-height:1.7;}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+.exp-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.ep{font-size:11px;padding:4px 12px;border-radius:20px;font-weight:500;background:var(--teal-dim);color:var(--teal);}
+.ep.p{background:var(--purple-dim);color:var(--accent2);}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem;}
+.skill-group{padding:1.5rem;border:0.5px solid var(--border);border-radius:14px;background:var(--card);}
+.sg-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0;}
+.stags{display:flex;flex-wrap:wrap;gap:6px;}
+.stag{font-size:12px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.05);color:var(--muted);border:0.5px solid var(--border);}
+
+/* CASE STUDIES */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+.case-card{background:var(--card);border:0.5px solid var(--border);border-radius:16px;padding:1.75rem;transition:border-color 0.2s;}
+.case-card:hover{border-color:var(--border2);}
+.ctag{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:1rem;}
+.ct-p{background:var(--purple-dim);color:var(--accent2);}
+.ct-t{background:var(--teal-dim);color:var(--teal);}
+.ct-k{background:var(--pink-dim);color:var(--pink);}
+.case-title{font-size:16px;font-weight:600;margin-bottom:4px;color:var(--text);}
+.case-client{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.case-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;}
+.case-metrics{display:flex;flex-direction:column;gap:6px;margin-bottom:1.25rem;padding:1rem;background:rgba(255,255,255,0.03);border-radius:10px;border:0.5px solid var(--border);}
+.cm{display:flex;justify-content:space-between;font-size:13px;}
+.cm-l{color:var(--muted);}
+.cm-v{font-weight:600;color:var(--teal);}
+.cm-v.p{color:var(--accent2);}
+.cstack{display:flex;flex-wrap:wrap;gap:5px;}
+.cstag{font-size:11px;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,0.05);color:var(--muted);border:0.5px solid var(--border);}
+
+/* HIGHLIGHTS */
+.hl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-bottom:3rem;}
+.hl-card{padding:1.75rem;border:0.5px solid var(--border);border-radius:14px;background:var(--card);}
+.hl-icon{font-size:24px;margin-bottom:1rem;}
+.hl-title{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--text);}
+.hl-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.cert-item{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-top:0.5px solid var(--border);}
+.cert-name{font-size:14px;font-weight:500;color:var(--text);}
+.cert-org{font-size:12px;color:var(--muted);margin-top:3px;}
+.cert-yr{font-size:12px;color:var(--muted);flex-shrink:0;background:rgba(255,255,255,0.05);padding:4px 12px;border-radius:20px;margin-left:1rem;}
+
+/* CONTACT */
+#contact{text-align:center;}
+.contact-subtitle{font-size:15px;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.contact-link{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:0.5px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;font-family:inherit;cursor:pointer;transition:border-color 0.2s,background 0.2s;background:var(--card);}
+.contact-link:hover{border-color:var(--accent);background:var(--purple-dim);}
+
+/* FOOTER */
+footer{padding:1.5rem clamp(1.5rem,6vw,5rem);border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;}
+footer p{font-size:13px;color:var(--muted2);}
+
+svg{vertical-align:middle;flex-shrink:0;}
+@media(max-width:600px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- NAV — all onclick JS scroll, zero <a href> tags -->
+<nav>
+  <span class="nav-logo" onclick="goTo('hero')">
+    <div class="nav-avatar">AT</div>
+    Amulya Thadepalli
+  </span>
+  <ul class="nav-links">
+    <li><span id="nl-about"    onclick="goTo('about')">About</span></li>
+    <li><span id="nl-experience" onclick="goTo('experience')">Experience</span></li>
+    <li><span id="nl-skills"   onclick="goTo('skills')">Skills</span></li>
+    <li><span id="nl-cases"    onclick="goTo('cases')">Case Studies</span></li>
+    <li><span id="nl-highlights" onclick="goTo('highlights')">Highlights</span></li>
+  </ul>
+  <button class="nav-hire" onclick="goTo('contact')">Hire me</button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-layout">
+    <div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Open to work &middot; Available immediately
+      </div>
+      <h1 class="hero-name">
+        Amulya<br>
+        <span class="hero-name-grad">Thadepalli</span>
+      </h1>
+      <p class="hero-subtitle">Senior Quality Analyst &middot; Software Engineer III in Test</p>
+      <p class="hero-quote">"Delivering enterprise-grade software quality through automation, AI-driven validation, and accessibility — ensuring products that users trust from the very first click."</p>
+      <div class="hero-actions">
+        <button class="btn-grad" onclick="goTo('contact')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          Contact me
+        </button>
+        <button class="btn-outline" onclick="goTo('experience')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          Experience
+        </button>
+        <button class="btn-outline" onclick="goTo('cases')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Case Studies
+        </button>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="pc-header">
+        <div class="pc-avatar">AT</div>
+        <div>
+          <div class="pc-name">Amulya Thadepalli</div>
+          <div class="pc-role">Senior QA Engineer</div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>&nbsp;Experience</span>
+        <span class="pc-value">7+ years</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>&nbsp;Companies</span>
+        <span class="pc-value">2 companies</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>&nbsp;Platforms</span>
+        <span class="pc-value">Web &middot; iOS &middot; Android</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>&nbsp;Effort saved</span>
+        <span class="pc-value">50% reduction</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>&nbsp;Leadership</span>
+        <span class="pc-value">QA Team Lead</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>&nbsp;Education</span>
+        <span class="pc-value">B.Tech IT &middot; 87%</span>
+      </div>
+      <div class="pc-row">
+        <span class="pc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>&nbsp;Location</span>
+        <span class="pc-value">Hyderabad, India</span>
+      </div>
+      <div class="pc-footer">
+        <span class="pc-available"><span class="status-dot"></span>&nbsp;Available for opportunities</span>
+        <span class="pc-badge">OPEN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="sec-inner">
+    <p class="sec-label">01 — About me</p>
+    <h2 class="sec-title">Senior QA engineer with <span>enterprise depth</span></h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>Senior Quality Analyst with 7+ years of experience spanning manual testing, test automation, AI-driven chatbot validation, and accessibility testing. I currently lead QA across multiple enterprise-scale products as a Software Engineer III in Test.</p>
+        <p>My expertise lies in building Selenium and Playwright-based automation frameworks from the ground up, validating conversational AI flows, and establishing testing playbooks that scale across entire product teams.</p>
+        <p>I bring a strong QA leadership mindset — mentoring engineers, driving sprint ceremonies, and collaborating closely with product and development teams to ship with confidence.</p>
+        <p>Earlier in my career I delivered 3+ years of QA for a major US tech client, covering cross-platform iOS/Android testing and full regression lifecycle management with Power BI reporting.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card"><div class="info-card-lbl">Current role</div><div class="info-card-val">Software Engineer III in Test</div></div>
+        <div class="info-card"><div class="info-card-lbl">Location</div><div class="info-card-val">Hyderabad, India</div></div>
+        <div class="info-card"><div class="info-card-lbl">Education</div><div class="info-card-val">B.Tech in Information Technology &middot; 87% (2018)</div></div>
+        <div class="info-card"><div class="info-card-lbl">Methodology</div><div class="info-card-val">Agile / Scrum — sprints, grooming, retrospectives</div></div>
+        <div class="info-card"><div class="info-card-lbl">Specialization</div><div class="info-card-val">Automation · AI Testing · Accessibility · API Testing</div></div>
+        <div class="info-card"><div class="info-card-lbl">Award</div><div class="info-card-val">🏆 Rockstar Award — Outstanding Performance</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="sec-inner">
+    <p class="sec-label">02 — Experience</p>
+    <h2 class="sec-title">7+ years across <span>enterprise products</span></h2>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Mitratech India LLP</div>
+        <div class="exp-date">May 2022 – Present</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer III in Test &middot; QA Lead</div>
+        <ul class="exp-bullets">
+          <li>Performed AI-driven testing — validating chatbot responses, conversational flows, and intent accuracy across enterprise AI products.</li>
+          <li>Built a Playwright cross-browser UI automation framework (Chromium, Firefox, WebKit) in Java with auto-wait mechanisms and stable locators.</li>
+          <li>Authored an Accessibility &amp; Localization Testing Playbook standardizing WCAG 2.1 practices across all products, reducing manual effort by 50%.</li>
+          <li>Conducted REST API testing with Postman — request/response validation, status codes, headers, and error handling.</li>
+          <li>Ensured WCAG compliance using NVDA and JAWS screen readers across enterprise product lines.</li>
+          <li>Led QA as team lead: mentoring engineers, driving test strategy, and ensuring high-quality deliverables across multiple product lines.</li>
+        </ul>
+        <div class="exp-pills">
+          <span class="ep">50% effort reduction</span><span class="ep">WCAG 2.1</span>
+          <span class="ep p">Playwright + Java</span><span class="ep p">AI chatbot validation</span>
+          <span class="ep">QA Team Lead</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Mitratech India LLP</div>
+        <div class="exp-date">Earlier tenure</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer II in Test</div>
+        <ul class="exp-bullets">
+          <li>Built Selenium WebDriver automation scripts using TestNG, Page Object Model, Data-Driven, and Hybrid design patterns.</li>
+          <li>Contributed to daily scrums, sprint planning, backlog grooming, demos, and retrospectives.</li>
+          <li>Analyzed failed test cases, reported defects, and maintained test automation suite health throughout release cycles.</li>
+        </ul>
+        <div class="exp-pills">
+          <span class="ep p">Selenium WebDriver</span><span class="ep p">TestNG + POM</span><span class="ep">Agile / Scrum</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Tata Consultancy Services</div>
+        <div class="exp-date">Dec 2018 – May 2022</div>
+      </div>
+      <div>
+        <div class="exp-role">Systems Engineer &middot; Client: Microsoft</div>
+        <ul class="exp-bullets">
+          <li>Automated Excel Web (WXP) using Selenium WebDriver with a TestNG/Maven Data-Driven framework for Microsoft.</li>
+          <li>Performed functional and regression testing on WXP apps across Android and iOS devices (OXO project).</li>
+          <li>Owned full testing lifecycle: requirements analysis, test plan creation, execution, defect logging, and reporting.</li>
+          <li>Generated Power BI dashboards for bug tracking and sprint metrics for stakeholder visibility.</li>
+          <li>Received the Rockstar Award for outstanding performance and ownership across project deliveries.</li>
+        </ul>
+        <div class="exp-pills">
+          <span class="ep">Microsoft client</span><span class="ep">Android &amp; iOS</span>
+          <span class="ep p">Power BI reporting</span><span class="ep p">Rockstar Award 🏆</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <div class="sec-inner">
+    <p class="sec-label">03 — Skills &amp; tools</p>
+    <h2 class="sec-title">Full-stack <span>quality engineering</span></h2>
+    <div class="skills-grid">
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Testing types</div><div class="stags"><span class="stag">Manual</span><span class="stag">Automation</span><span class="stag">Functional</span><span class="stag">Regression</span><span class="stag">Sanity</span><span class="stag">UAT</span><span class="stag">Integration</span><span class="stag">Accessibility</span><span class="stag">Localization</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Automation tools</div><div class="stags"><span class="stag">Selenium WebDriver</span><span class="stag">Playwright (Java)</span><span class="stag">Playwright (TypeScript)</span><span class="stag">TestNG</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Frameworks &amp; patterns</div><div class="stags"><span class="stag">Page Object Model</span><span class="stag">Data-Driven</span><span class="stag">Hybrid</span><span class="stag">Maven</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>API testing</div><div class="stags"><span class="stag">Postman</span><span class="stag">REST APIs</span><span class="stag">Headers</span><span class="stag">Status codes</span><span class="stag">Error handling</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Accessibility</div><div class="stags"><span class="stag">NVDA</span><span class="stag">JAWS</span><span class="stag">WCAG 2.1</span><span class="stag">Screen readers</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>DevOps &amp; CI/CD</div><div class="stags"><span class="stag">Git</span><span class="stag">GitHub</span><span class="stag">Azure DevOps</span><span class="stag">Bitbucket</span><span class="stag">Jenkins</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>IDEs &amp; build tools</div><div class="stags"><span class="stag">IntelliJ IDEA</span><span class="stag">Visual Studio</span><span class="stag">Maven</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Test management</div><div class="stags"><span class="stag">TestRail</span><span class="stag">Jira</span><span class="stag">VSO</span><span class="stag">Power BI</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>AI &amp; conversational testing</div><div class="stags"><span class="stag">Chatbot validation</span><span class="stag">Intent accuracy</span><span class="stag">Edge cases</span><span class="stag">Conversation flows</span></div></div>
+      <div class="skill-group"><div class="sg-title"><span class="sdot"></span>Methodology</div><div class="stags"><span class="stag">Agile</span><span class="stag">Scrum</span><span class="stag">Sprint planning</span><span class="stag">Backlog grooming</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES ═══ -->
+<section id="cases">
+  <div class="sec-inner">
+    <p class="sec-label">04 — Case studies</p>
+    <h2 class="sec-title">Real-world <span>impact delivered</span></h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <span class="ctag ct-p">AI Testing</span>
+        <div class="case-title">Enterprise AI Chatbot Validation</div>
+        <div class="case-client">Current role &middot; 2023–Present</div>
+        <div class="case-desc">Led end-to-end QA for an enterprise AI chatbot — designing test strategies covering intent classification, entity extraction, fallback handling, and multi-turn conversational flows.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Intent accuracy coverage</span><span class="cm-v">95%+</span></div>
+          <div class="cm"><span class="cm-l">Edge case scenarios</span><span class="cm-v p">200+</span></div>
+          <div class="cm"><span class="cm-l">Defect catch rate</span><span class="cm-v">Pre-release</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">Conversational AI</span><span class="cstag">Intent testing</span><span class="cstag">TestRail</span><span class="cstag">Azure DevOps</span></div>
+      </div>
+      <div class="case-card">
+        <span class="ctag ct-t">Accessibility</span>
+        <div class="case-title">Accessibility &amp; Localization Playbook</div>
+        <div class="case-client">Current role &middot; 2022–2023</div>
+        <div class="case-desc">Designed a company-wide Accessibility and Localization Testing Playbook from scratch — standardizing WCAG 2.1 compliance and screen-reader testing protocols across all product lines.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Manual effort reduction</span><span class="cm-v">50%</span></div>
+          <div class="cm"><span class="cm-l">Standard achieved</span><span class="cm-v p">WCAG 2.1</span></div>
+          <div class="cm"><span class="cm-l">Coverage</span><span class="cm-v">All product lines</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">NVDA</span><span class="cstag">JAWS</span><span class="cstag">WCAG 2.1</span><span class="cstag">Localization</span></div>
+      </div>
+      <div class="case-card">
+        <span class="ctag ct-p">Automation</span>
+        <div class="case-title">Playwright Cross-Browser Automation Framework</div>
+        <div class="case-client">Current role &middot; 2022–Present</div>
+        <div class="case-desc">Built a production-grade E2E automation framework using Playwright with Java — covering Chromium, Firefox, and WebKit with stable locators, auto-wait mechanisms, and CI/CD integration.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Browsers covered</span><span class="cm-v">3 engines</span></div>
+          <div class="cm"><span class="cm-l">Framework type</span><span class="cm-v p">E2E + Regression</span></div>
+          <div class="cm"><span class="cm-l">Pipeline</span><span class="cm-v">Jenkins integrated</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">Playwright</span><span class="cstag">Java</span><span class="cstag">TypeScript</span><span class="cstag">Jenkins</span><span class="cstag">Cross-browser</span></div>
+      </div>
+      <div class="case-card">
+        <span class="ctag ct-t">API Testing</span>
+        <div class="case-title">REST API Test Suite — Enterprise Products</div>
+        <div class="case-client">Current role &middot; 2022–Present</div>
+        <div class="case-desc">Designed comprehensive REST API test suites covering authentication, CRUD operations, error handling, response schema validation, and performance edge cases for mission-critical endpoints.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Test categories</span><span class="cm-v">6+ types</span></div>
+          <div class="cm"><span class="cm-l">Coverage</span><span class="cm-v p">Full API suite</span></div>
+          <div class="cm"><span class="cm-l">Integration</span><span class="cm-v">CI/CD pipeline</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">Postman</span><span class="cstag">REST APIs</span><span class="cstag">JSON schema</span><span class="cstag">Auth testing</span></div>
+      </div>
+      <div class="case-card">
+        <span class="ctag ct-k">Microsoft Client</span>
+        <div class="case-title">Excel Web (WXP) Automation</div>
+        <div class="case-client">TCS &middot; Client: Microsoft &middot; 2018–2022</div>
+        <div class="case-desc">Delivered full Selenium-based automation for Microsoft Excel Web — building a robust Data-Driven framework covering complex spreadsheet interactions, formula validation, and cross-browser functionality.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Client</span><span class="cm-v">Microsoft</span></div>
+          <div class="cm"><span class="cm-l">Framework</span><span class="cm-v p">Data-Driven + Maven</span></div>
+          <div class="cm"><span class="cm-l">Award</span><span class="cm-v">Rockstar Award 🏆</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">Selenium WebDriver</span><span class="cstag">TestNG</span><span class="cstag">Maven</span><span class="cstag">Java</span><span class="cstag">VSO</span></div>
+      </div>
+      <div class="case-card">
+        <span class="ctag ct-k">Mobile QA</span>
+        <div class="case-title">Cross-Platform Mobile QA — OXO Project</div>
+        <div class="case-client">TCS &middot; Client: Microsoft &middot; 2020–2022</div>
+        <div class="case-desc">Led functional and regression testing for a Microsoft product on both Android and iOS. Created test plans, tracked defects end-to-end, and built Power BI dashboards for sprint-level reporting.</div>
+        <div class="case-metrics">
+          <div class="cm"><span class="cm-l">Platforms</span><span class="cm-v">Android + iOS</span></div>
+          <div class="cm"><span class="cm-l">Testing types</span><span class="cm-v p">7 types</span></div>
+          <div class="cm"><span class="cm-l">Reporting</span><span class="cm-v">Power BI dashboards</span></div>
+        </div>
+        <div class="cstack"><span class="cstag">Android</span><span class="cstag">iOS</span><span class="cstag">Regression</span><span class="cstag">Power BI</span><span class="cstag">Jira</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HIGHLIGHTS ═══ -->
+<section id="highlights">
+  <div class="sec-inner">
+    <p class="sec-label">05 — Highlights</p>
+    <h2 class="sec-title">Impact-driven <span>contributions</span></h2>
+    <div class="hl-grid">
+      <div class="hl-card"><div class="hl-icon">🤖</div><div class="hl-title">AI chatbot validation pioneer</div><div class="hl-desc">Specialized in validating enterprise conversational AI — covering intent accuracy, edge cases, and multi-turn dialogue flows for production chatbot products.</div></div>
+      <div class="hl-card"><div class="hl-icon">♿</div><div class="hl-title">Accessibility playbook author</div><div class="hl-desc">Designed and rolled out an Accessibility &amp; Localization Testing Playbook across all product lines, reducing manual testing effort by 50% and standardizing WCAG 2.1 compliance.</div></div>
+      <div class="hl-card"><div class="hl-icon">🧪</div><div class="hl-title">Playwright framework architect</div><div class="hl-desc">Built production-grade UI automation in Playwright/Java and TypeScript covering all three major browser engines with stable locators and auto-wait assertions.</div></div>
+      <div class="hl-card"><div class="hl-icon">🏆</div><div class="hl-title">Rockstar Award — TCS</div><div class="hl-desc">Received the Rockstar Award at Tata Consultancy Services for outstanding performance, ownership, and consistent contribution to enterprise project deliveries for the Microsoft client.</div></div>
+      <div class="hl-card"><div class="hl-icon">👥</div><div class="hl-title">QA team lead</div><div class="hl-desc">Led testing activities across multiple product lines — mentoring engineers, driving test strategy, and participating in cross-functional agile ceremonies for high-quality releases.</div></div>
+      <div class="hl-card"><div class="hl-icon">🔬</div><div class="hl-title">Microsoft enterprise delivery</div><div class="hl-desc">Delivered 3+ years of QA for Microsoft at TCS, covering Excel Web automation, cross-platform iOS/Android testing, and Power BI-driven defect reporting.</div></div>
+    </div>
+    <p class="sec-label" style="margin-top:2.5rem;">Certifications &amp; achievements</p>
+    <div class="cert-item"><div><div class="cert-name">Selenium WebDriver with Java + Frameworks</div><div class="cert-org">Udemy</div></div><span class="cert-yr">Jan 2020</span></div>
+    <div class="cert-item"><div><div class="cert-name">PL-900: Microsoft Power Platform Fundamentals</div><div class="cert-org">Microsoft / Udemy</div></div><span class="cert-yr">Jun 2021</span></div>
+    <div class="cert-item"><div><div class="cert-name">MO-200: Microsoft Excel 365 Associate</div><div class="cert-org">Microsoft / Udemy</div></div><span class="cert-yr">Oct 2021</span></div>
+    <div class="cert-item"><div><div class="cert-name">Rockstar Award — Outstanding Performance</div><div class="cert-org">Tata Consultancy Services</div></div><span class="cert-yr" style="color:var(--teal);">Recognition</span></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="sec-inner">
+    <p class="sec-label" style="text-align:center;">06 — Contact</p>
+    <h2 class="sec-title" style="text-align:center;">Let's work <span>together</span></h2>
+    <p class="contact-subtitle">Open to senior QA roles, automation consulting, and remote opportunities. Based in Hyderabad, India — available immediately.</p>
+    <div class="contact-links">
+      <button class="contact-link" onclick="window.location='mailto:amulyathadepalli97@gmail.com'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        amulyathadepalli97@gmail.com
+      </button>
+      <button class="contact-link" onclick="window.open('https://www.linkedin.com/in/amulyavutukuru/','_blank')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+        LinkedIn profile
+      </button>
+      <button class="contact-link" onclick="window.location='tel:+919398065127'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 11.5 19.79 19.79 0 0 1 1.08 2.83 2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+        +91 93980 65127
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 &middot; Amulya Thadepalli &middot; Senior QA Engineer &middot; Hyderabad, IN</p>
+  <p>amulyathadepalli97@gmail.com</p>
+</footer>
+
+<script>
+function goTo(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+
+/* Active nav highlight on scroll */
+var sections = ['hero','about','experience','skills','cases','highlights','contact'];
+var nlMap = { about:'nl-about', experience:'nl-experience', skills:'nl-skills', cases:'nl-cases', highlights:'nl-highlights' };
+
+function updateNav() {
+  var scrollY = window.pageYOffset + 100;
+  var current = 'hero';
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY) current = id;
+  });
+  Object.keys(nlMap).forEach(function(id) {
+    var el = document.getElementById(nlMap[id]);
+    if (el) el.classList.toggle('active', id === current);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+</script>
+</body>
+</html>
